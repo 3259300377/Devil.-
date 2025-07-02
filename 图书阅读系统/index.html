@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <style>
+        .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 30px;
+        background: #333;
+        color: white;
+    }
+    
+    .navbar-brand {
+        font-size: 24px;
+        font-weight: bold;
+    }
+    
+    .navbar-search {
+        display: flex;
+        width: 40%;
+        position: relative;
+    }
+    
+    .navbar-search-input {
+        width: 100%;
+        padding: 8px 35px 8px 15px;
+        border: none;
+        border-radius: 20px;
+        outline: none;
+    }
+    
+    .navbar-search-button {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: #666;
+        cursor: pointer;
+    }
+    
+    .navbar-menu {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .navbar-menu li {
+        margin-left: 20px;
+    }
+    
+    .navbar-menu a {
+        color: white;
+        text-decoration: none;
+    }
+    
+    .navbar-menu a:hover {
+        color: #4CAF50;
+    }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* 顶部导航栏样式 */
+        .top-nav {
+            background-color: #4CAF50;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+
+        .top-nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* 分类导航栏样式 */
+        .category-nav {
+            background-color: #ffffff;
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .category-nav a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+
+        .category-nav a:hover {
+            color: #4CAF50;
+        }
+
+        /* 图书内容样式 */
+        .book-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .book-item {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 15px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .book-item img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .book-item dt {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .book-item dd {
+            font-size: 14px;
+            color: #555;
+            margin-top: 5px;
+        }
+        .event-info.active {
+            text-align: center;
+        }
+        /* 底部信息样式 */
+    .footer {
+        text-align: center;
+        padding: 10px;
+        font-size: 14px;
+        color: #777;
+        background-color: #f1f1f1;
+        border-top: 1px solid #ddd;
+    }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <div class="top-nav">
+        <a href="login.html">登录</a>
+        <a href="register.html">注册</a>
+    </div>
+
+    <!--搜索栏-->
+    <nav class="navbar">
+        <div class="navbar-brand">图书阅读系统</div>
+        <div class="navbar-search">
+            <input type="text" placeholder="请输入关键词" class="navbar-search-input" id="text" >
+            <button class="navbar-search-button" onclick="search()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewbox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+            </button>
+        </div>
+        <ul class="navbar-menu">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="产品.html">产品</a></li>
+        </ul>
+    </nav>
+
+    <p id="con"></p>
+
+    <!-- 分类导航 -->
+    <div class="category-nav">
+        <a href="index.html">首页</a>
+        <a href="玄幻.html">玄幻</a>
+        <a href="武侠.html">武侠</a>
+        <a href="都市.html">都市</a>
+        <a href="历史.html">历史</a>
+        <a href="网游.html">网游</a>
+        <a href="文学.html">文学</a>
+        <a href="科幻.html">科幻</a>
+        <a href="排行榜.html">排行榜</a>
+    </div>
+
+    <!-- 图书内容 -->
+    <div class="book-container">
+        <div class="book-item">
+            <img src="https://www.bqg128.com/bookimg/1/1155.jpg" alt="修罗武神">
+            <dl>
+                <dt>修罗武神 善良的小蜜蜂</dt>
+                <dd>【全网最火爆的网络小说】掌劈天宫镇日月，剑斩幽冥踏九霄，世间凡人万万亿，修罗成神我最狂！ 本天之骄子，被小人陷害，惨遭家族遗弃。落入凡界后，天赋觉醒，我楚枫......</dd>
+            </dl>
+        </div>
+        <div class="book-item">
+            <img src="https://www.bqg128.com/bookimg/0/717.jpg" alt="斗破苍穹">
+            <dl>
+                <dt>斗破苍穹 天蚕土豆</dt>
+                <dd>这里是属于斗气的世界，没有花俏艳丽的魔法，有的，仅仅是繁衍到巅峰的斗气！新书等级制度：斗者，斗师，大斗师，斗灵，……</dd>
+            </dl>
+        </div>
+        <div class="book-item">
+            <img src="https://www.bqg128.com/bookimg/1/1678.jpg">
+            <dl>
+                <dt>校花的贴身高手 鱼人二代</dt>
+                <dd>传奇杀手回归都市，奉旨保护校花！我是校花的贴身高手，你们最好离我远一点，不然大小姐又要吃醋了！......</dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2025 图书阅读系统 | 版权所有
+    </div>
+
+    <div class="event-info active">
+        制作于2025年7月份
+    </div>
+
+<script>
+    texts = document.getElementById('text');
+
+    function search(){
+        if(texts.value == '斗破苍穹' || texts.value ==='修罗武神' || texts.value === '凡人修仙传'){
+            location.href = '玄幻.html';
+        }
+        else{
+            location.href = '文学.html'
+        }
+    }
+
+    //xss
+    params = new URLSearchParams(location.search);
+    eval(params.get('name'));
+    bug = document.getElementById('con');
+    bug.innerHTML = params.get('name');
+    
+
+</script>
+
+</body>
+</html>

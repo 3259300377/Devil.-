@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册表单</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        .form-container div {
+            margin-bottom: 15px;
+        }
+
+        .form-container span.icon {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="password"] {
+            width: calc(100% - 30px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-container button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+
+        .form-container .icon-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            margin-left: 5px;
+        }
+
+        .form-container .icon-button:hover {
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div>
+            <span class="icon">👤</span>
+            <input type="text" placeholder="账号" id="username">
+        </div>
+        <div>
+            <span class="icon">🔒</span>
+            <input type="password" placeholder="密码" id="password">
+            <button id="cansee" class="icon-button">👁️</button>
+        </div>
+        <button id="register">登录</button>
+        <a href="register.html">没有账号？点击注册</a>
+    </div>
+
+    <script>
+        const cansees = document.getElementById('cansee');//处理是否可见逻辑
+        const passwords = document.getElementById('password');
+        cansees.addEventListener('click', toggle);
+        function toggle() {
+            const isPassword = passwords.type === 'password';
+            passwords.type = isPassword ? 'text' : 'password';
+        }
+
+
+        const usernames = document.getElementById('username');//处理输入非空逻辑
+        const registers = document.getElementById('register');
+        registers.addEventListener('click', check);
+
+        function check() {
+            if (!usernames.value || !passwords.value) {
+                alert('账号和密码不能为空');
+            } else {
+                alert('注册成功');
+                location.href = 'index.html';
+            }
+        }
+    </script>
+</body>
+</html>

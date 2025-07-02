@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+    }
+
+    /* 顶部导航栏样式 */
+    .top-nav {
+        background-color: #4CAF50;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .top-nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 16px;
+        transition: color 0.3s ease;
+    }
+
+    .top-nav a:hover {
+        color: #FFD700;
+        text-decoration: underline;
+    }
+
+    /* 搜索栏样式 */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 30px;
+        background: #333;
+        color: white;
+    }
+
+    .navbar-brand {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .navbar-search {
+        display: flex;
+        width: 40%;
+        position: relative;
+    }
+
+    .navbar-search-input {
+        width: 100%;
+        padding: 8px 35px 8px 15px;
+        border: none;
+        border-radius: 20px;
+        outline: none;
+        font-size: 14px;
+        background-color: #f1f1f1;
+        transition: background-color 0.3s ease;
+    }
+
+    .navbar-search-input:focus {
+        background-color: #e0e0e0;
+    }
+
+    .navbar-search-button {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: #666;
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+
+    .navbar-search-button:hover {
+        color: #4CAF50;
+    }
+
+    .navbar-menu {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar-menu li {
+        margin-left: 20px;
+    }
+
+    .navbar-menu a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        transition: color 0.3s ease;
+    }
+
+    .navbar-menu a:hover {
+        color: #FFD700;
+    }
+
+    /* 分类导航栏样式 */
+    .category-nav {
+        background-color: #ffffff;
+        padding: 10px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .category-nav a {
+        color: #333;
+        text-decoration: none;
+        margin: 0 10px;
+        font-size: 14px;
+        transition: color 0.3s ease;
+    }
+
+    .category-nav a:hover {
+        color: #4CAF50;
+    }
+
+    /* 排行榜样式 */
+    ol {
+        text-align: center;
+        padding: 20px;
+        font-size: 18px;
+        color: #333;
+        list-style: decimal inside;
+    }
+
+    ol li {
+        margin: 10px 0;
+        transition: color 0.3s ease;
+    }
+
+    ol li:hover {
+        color: #4CAF50;
+        font-weight: bold;
+    }
+
+    /* 推荐书籍样式 */
+    .recommend-container {
+        background-color: #ffffff;
+        padding: 20px;
+        margin: 20px auto;
+        width: 80%;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .recommend-container h2 {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 15px;
+    }
+
+    .recommend-container p {
+        font-size: 16px;
+        color: #555;
+        margin-bottom: 10px;
+    }
+
+    /* 底部信息样式 */
+    .footer {
+        text-align: center;
+        padding: 10px;
+        font-size: 14px;
+        color: #777;
+        background-color: #f1f1f1;
+        border-top: 1px solid #ddd;
+    }
+</style>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <div class="top-nav">
+        <a href="login.html">登录</a>
+        <a href="register.html">注册</a>
+    </div>
+
+    <!--搜索栏-->
+    <nav class="navbar">
+        <div class="navbar-brand">图书阅读系统</div>
+        <div class="navbar-search">
+            <input type="text" placeholder="请输入关键词" class="navbar-search-input" id="text">
+            <button class="navbar-search-button" onclick="search()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewbox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+            </button>
+        </div>
+        <ul class="navbar-menu">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="产品.html">产品</a></li>
+        </ul>
+    </nav>
+
+    <!-- 分类导航 -->
+    <div class="category-nav">
+        <a href="index.html">首页</a>
+        <a href="玄幻.html">玄幻</a>
+        <a href="武侠.html">武侠</a>
+        <a href="都市.html">都市</a>
+        <a href="历史.html">历史</a>
+        <a href="网游.html">网游</a>
+        <a href="文学.html">文学</a>
+        <a href="科幻.html">科幻</a>
+        <a href="排行榜.html">排行榜</a>
+    </div>
+
+    <ol style="text-align: center;">
+        <li><a href="玄幻.html">斗破苍穹</a></li>
+        <li><a href="玄幻.html">修罗武神</a></li>
+        <li><a href="玄幻.html">凡人修仙传</a></li>
+        <li><a href="index.html">校花的贴身高手</a></li>
+        <li><a href="武侠.html">射雕英雄传</a></li>
+        <li><a href="武侠.html">凡人问天</a></li>
+    </ol>
+
+    <div class="recommend-container">
+        <h2>推荐书籍</h2>
+        <p>《三体》 - 刘慈欣</p>
+        <p>《解忧杂货店》 - 东野圭吾</p>
+        <p>《活着》 - 余华</p>
+    </div>
+    
+    <div class="footer">
+        © 2025 图书阅读系统 | 版权所有
+    </div>
+
+    <div style="text-align: center;">
+        制作于2025年7月份
+    </div>
+
+    <script>
+        texts = document.getElementById('text');
+    
+        function search(){
+            if(texts.value === '斗破苍穹' || texts.value ==='修罗武神' || texts.value === '凡人修仙传'){
+                location.href = '玄幻.html';
+            }
+            else{
+                location.href = '文学.html'
+            }
+        }
+    </script>
+
+</body>
+</html>

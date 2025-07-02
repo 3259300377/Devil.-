@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* 顶部导航栏样式 */
+        .top-nav {
+            background-color: #4CAF50;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+
+        .top-nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* 分类导航栏样式 */
+        .category-nav {
+            background-color: #ffffff;
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .category-nav a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+
+        .category-nav a:hover {
+            color: #4CAF50;
+        }
+
+        /* 图书内容样式 */
+        .book-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .book-item {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 15px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .book-item img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .book-item dt {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .book-item dd {
+            font-size: 14px;
+            color: #555;
+            margin-top: 5px;
+        }
+        .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 30px;
+        background: #333;
+        color: white;
+    }
+    
+    .navbar-brand {
+        font-size: 24px;
+        font-weight: bold;
+    }
+    
+    .navbar-search {
+        display: flex;
+        width: 40%;
+        position: relative;
+    }
+    
+    .navbar-search-input {
+        width: 100%;
+        padding: 8px 35px 8px 15px;
+        border: none;
+        border-radius: 20px;
+        outline: none;
+    }
+    
+    .navbar-search-button {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: #666;
+        cursor: pointer;
+    }
+    
+    .navbar-menu {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .navbar-menu li {
+        margin-left: 20px;
+    }
+    
+    .navbar-menu a {
+        color: white;
+        text-decoration: none;
+    }
+    
+    .navbar-menu a:hover {
+        color: #4CAF50;
+    }
+    /* 底部信息样式 */
+    .footer {
+        text-align: center;
+        padding: 10px;
+        font-size: 14px;
+        color: #777;
+        background-color: #f1f1f1;
+        border-top: 1px solid #ddd;
+    }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <div class="top-nav">
+        <a href="login.html">登录</a>
+        <a href="register.html">注册</a>
+    </div>
+
+    <!--搜索栏-->
+    <nav class="navbar">
+        <div class="navbar-brand">图书阅读系统</div>
+        <div class="navbar-search">
+            <input type="text" placeholder="请输入关键词" class="navbar-search-input" id="text">
+            <button class="navbar-search-button" onclick="search()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewbox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+            </button>
+        </div>
+        <ul class="navbar-menu">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="产品.html">产品</a></li>
+        </ul>
+    </nav>
+
+    <!-- 分类导航 -->
+    <div class="category-nav">
+        <a href="index.html">首页</a>
+        <a href="玄幻.html">玄幻</a>
+        <a href="武侠.html">武侠</a>
+        <a href="都市.html">都市</a>
+        <a href="历史.html">历史</a>
+        <a href="网游.html">网游</a>
+        <a href="文学.html">文学</a>
+        <a href="科幻.html">科幻</a>
+        <a href="排行榜.html">排行榜</a>
+    </div>
+
+    <!-- 图书内容 -->
+    <div class="book-container">
+        <div class="book-item">
+            <img src="https://tse3-mm.cn.bing.net/th/id/OIP-C.tM5Zpa6w2MamN0R7TApRpwHaGt?w=221&h=201&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3">
+            <dl>
+                <dt>明朝那些事儿 当年明月</dt>
+                <dd>《明朝那些事儿》主要讲述的是从1344年到1644年这三百年间关于明朝的一些故事。以史料为基础，以年代和具体人物为主线，……</dd>
+            </dl>
+        </div>
+        <div class="book-item">
+            <img src="https://www.bqg128.com/bookimg/189/189534.jpg" alt="红楼：重生贾环文武双全">
+            <dl>
+                <dt>红楼：重生贾环文武双全 孤筏掌灯明</dt>
+                <dd>现代青年穿越红楼世界，成为荣国府最不受待见的庶子贾环，不料开局抓住贾宝玉把柄，从此开启不一样的红楼世界生活，讹宝玉......</dd>
+            </dl>
+        </div>
+        <div class="book-item">
+            <img src="https://www.bqg128.com/bookimg/197/197187.jpg" alt="玲珑骨" >
+            <dl>
+                <dt>玲珑骨 耳钉</dt>
+                <dd>他，他是明月出天山，清光满，原在山之巅。她，她是池中火红莲，波光闪，风露自缠绵。她，她是白梅雪中寒，容光冷，唯有暗......</dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2025 图书阅读系统 | 版权所有
+    </div>
+
+    <div style="text-align: center;">
+        制作于2025年7月份
+    </div>
+
+    <script>
+        texts = document.getElementById('text');
+    
+        function search(){
+            if(texts.value === '斗破苍穹' || texts.value ==='修罗武神' || texts.value === '凡人修仙传'){
+                location.href = '玄幻.html';
+            }
+            else{
+                location.href = '文学.html'
+            }
+        }
+    </script>
+
+</body>
+</html>
